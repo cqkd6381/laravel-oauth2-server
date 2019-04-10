@@ -38,13 +38,18 @@ class AuthServiceProvider extends ServiceProvider
 
         /*定义作用域*/
         Passport::tokensCan([
+            'user' => 'user info',
             'place-orders' => 'Place orders',
             'check-status' => 'Check order status',
+            'test' => [
+                'test1' => 'test1',
+                'test2' => 'test2',
+            ],
         ]);
 
         /*默认作用域*/
         Passport::setDefaultScope([
-            'check-status',
+            'user',
         ]);
     }
 }
