@@ -41,3 +41,5 @@ Route::get('/user', function (Request $request) {
         echo ' && place-orders';
     }
 })->middleware('auth:api', 'scope:check-status,place-orders');
+
+Route::resource('users','UserController');
