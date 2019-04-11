@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('reg','Auth\RegisterController@reg')->name('reg');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/maketoken', function () {

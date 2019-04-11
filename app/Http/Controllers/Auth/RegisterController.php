@@ -37,7 +37,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except('reg');
     }
 
     /**
@@ -68,5 +68,13 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function reg()
+    {
+        if(\Auth::check()){
+            \Auth::logout();
+        }
+        return redirect()->route('register');
     }
 }
